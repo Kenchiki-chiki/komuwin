@@ -6,3 +6,41 @@
   margin: 0 auto;
   padding: 1rem;
 }
+
+
+/* Googleカレンダー */
+.g-calendar-wrapper {
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.content-title h2 {
+  color: #444444;
+}
+
+@media screen and (min-width: 0px) {
+  .content-title h2 {
+    font-size: 48px;
+  }
+  .g-calendar iframe {
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+   
+  }
+
+  }
+
+@media screen and (min-width: 768px) {
+  .content-title h2 {
+    font-size: 30px;
+    
+  }
+  .g-calendar iframe {
+    width: 100%;
+    max-width: 800px;
+    height: 600px;
+   
+  }
+
+  }
