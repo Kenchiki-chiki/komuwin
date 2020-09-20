@@ -1,0 +1,2 @@
+class InterviewSheet < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class ExpectedQuestion < ApplicationRecord
+end
