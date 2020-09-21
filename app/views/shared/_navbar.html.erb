@@ -1,0 +1,71 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top">
+  <%= link_to "KomuWin", root_path, class: "navbar-brand text-white"%>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse navbar-nav" id="navbarSupportedContent">
+    <% if user_signed_in? %>
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          特別区
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "各区の概要", "http://www.tokyo23city.or.jp/saiyo/2019/23kushoukai/index.html", class: "dropdown-item" %>
+          <div class="dropdown-divider"></div>
+
+          <%= link_to "千代田区", "#", class: "dropdown-item" %>
+          <%= link_to "中央区", "#", class: "dropdown-item" %>
+          <%= link_to "港区", "#", class: "dropdown-item" %>
+          <%= link_to "新宿区", "#", class: "dropdown-item" %>
+          <%= link_to "文京区", "#", class: "dropdown-item" %>
+          <%= link_to "台東区", "#", class: "dropdown-item" %>
+          <%= link_to "墨田区", "#", class: "dropdown-item" %>
+          <%= link_to "江東区", "#", class: "dropdown-item" %>
+          <%= link_to "品川区", "#", class: "dropdown-item" %>
+          <%= link_to "目黒区", "#", class: "dropdown-item" %>
+          <%= link_to "大田区", "#", class: "dropdown-item" %>
+          <%= link_to "世田谷区", "#", class: "dropdown-item" %>
+          <%= link_to "渋谷区", "#", class: "dropdown-item" %>
+          <%= link_to "中野区", "#", class: "dropdown-item" %>
+          <%= link_to "杉並区", "#", class: "dropdown-item" %>
+          <%= link_to "豊島区", "#", class: "dropdown-item" %>
+          <%= link_to "北区", "#", class: "dropdown-item" %>
+          <%= link_to "荒川区", "#", class: "dropdown-item" %>
+          <%= link_to "板橋区", "#", class: "dropdown-item" %>
+          <%= link_to "練馬区", "#", class: "dropdown-item" %>
+          <%= link_to "足立区", "#", class: "dropdown-item" %>
+          <%= link_to "葛飾区", "#", class: "dropdown-item" %>
+          <%= link_to "江戸川区", "#", class: "dropdown-item" %>
+         
+          <div class="dropdown-divider"></div>
+          <%= link_to "人厚組合", "#", class: "dropdown-item" %>
+          <%= link_to "競馬組合", "#", class: "dropdown-item" %>
+          <%= link_to "清掃組合", "#", class: "dropdown-item" %>
+        </div>
+      </div>
+      <%= link_to "テキスト教材", "#", class: "nav-item nav-link active text-white" %>
+      <%= link_to "動画教材", "#", class: "nav-item nav-link active text-white" %>
+      <%= link_to "面接シート", "#", class: "nav-item nav-link active text-white" %>
+      <%= link_to "想定質問ノック", "#", class: "nav-item nav-link active text-white" %>
+      <%= link_to "添削", "#", class: "nav-item nav-link active text-white" %>
+      <%= link_to "テキスト教材", "#", class: "nav-item nav-link active text-white" %>
+      <%= link_to "アカウント編集", "#", class: "nav-item nav-link active text-white" %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-item nav-link active text-white" %>
+    <% else %>
+        <%= link_to "新規登録", new_user_registration_path, class: "nav-item nav-link active text-white" %>
+        <%= link_to "ログイン", new_user_session_path, class: "nav-item nav-link active text-white" %>
+    <% end %>  
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+ 
