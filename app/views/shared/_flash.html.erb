@@ -1,0 +1,5 @@
+<% flash.each do |flash_type, msg| %>
+  <p class="<%= flash_type == 'notice' ? 'alert alert-success' : 'alert-danger' %>" role="alert">
+    <%= msg %>
+  </p>
+<% end %>
