@@ -1,0 +1,9 @@
+<div class="text-container">
+  <section id="text-contents" class="mx-auto" style="700px;">
+
+    <h2 class="mt-5"><%= markdown(@text.title).html_safe %></h2>
+    <%= markdown(@text.content).html_safe %>
+
+  </section>
+
+</div>
