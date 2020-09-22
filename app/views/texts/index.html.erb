@@ -1,0 +1,31 @@
+<div class="container">
+  <section id= "contents" class="mx-auto" style="width: 700px;">
+    <div class="text-center">
+      <h2 class="text_title">テキスト教材</h2>
+    </div>
+
+    <table class="table table-striped mt-4" rules="rows">
+      <thead class="table-primary">
+        <tr>
+          <th scope="col" class="w-1">No.</th>
+          <th scope="col" class="w-30">内容</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @texts.each.with_index(1) do |text, i| %>
+        <tr>
+          <th scope="row" class=""><%= i %></th>
+
+          <td class="break-word"><%= link_to text.title, text_path(text.id) %></td>
+
+          <td class="text-nowrap">
+          
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </section>
+</div>
