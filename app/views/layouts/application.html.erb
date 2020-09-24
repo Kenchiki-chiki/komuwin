@@ -17,7 +17,7 @@
     </header>
 
     <main>
-      <div class="base-container">
+      <div class="base-container <%= 'movie-width' if controller_name = "movies" %>">
         <%= yield %>
       </div>
     </main>

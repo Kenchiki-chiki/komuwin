@@ -1,0 +1,20 @@
+<div class="movie-container px-3">
+  
+  <div class="row px--3">
+  <% @movies.each.with_index(1) do |movie, index| %>
+    <div class="movie-cell col-12 col-md-6 col-lg-4 m-0">
+      <div class="card border-dark mb-3">
+
+        <div class="card-top embed-responsive embed-responsive-16by9 p-0">
+          <iframe class="embed-responsive-item" width="100%" height="" auto frameborder="0" src="<%= movie.url %>"></iframe>
+        </div>  
+        
+        <div class="card-bottom">
+          <p class="mb-0">Movie<%= index %>：<%= movie.title %></p>
+        </div> 
+      </div>
+    </div>
+  <% end %>
+  </div>
+  
+</div>
