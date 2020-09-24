@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :schedules
   root to: 'schedules#index'
   resources :texts
+  resources :movies
 end
