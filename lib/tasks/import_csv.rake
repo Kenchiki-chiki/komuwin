@@ -32,4 +32,21 @@ namespace :import_csv do
     end
   end
 
+  desc "面接シート教材のCSVデータをインポートするタスク"
+
+  task interview_sheet_data: :environment do
+    list = Import.csv_data(path:"db/csv_data/interview_sheet_data.csv")
+
+    puts START
+    # インポートができなかった場合の例外処理
+    begin
+      InterviewSheet.create!(list)
+      puts "インポート完了!!"
+    rescue ActiveModel::UnknownAttributeError => invalid
+      puts "インポートに失敗：UnknownAttributeError"
+    end
+  end
+
+  
+
 end

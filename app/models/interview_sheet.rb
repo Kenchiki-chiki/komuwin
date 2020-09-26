@@ -1,3 +1,3 @@
 class InterviewSheet < ApplicationRecord
-  validates :title, :content, presence: true
+  validates :title, :content, :genre, presence: true
 end
