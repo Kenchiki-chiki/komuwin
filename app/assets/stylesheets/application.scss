@@ -1,4 +1,9 @@
 @import "bootstrap/scss/bootstrap";
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+@import "@fortawesome/fontawesome-free/scss/fontawesome";
+@import "@fortawesome/fontawesome-free/scss/regular";
+@import "@fortawesome/fontawesome-free/scss/solid";
+@import "@fortawesome/fontawesome-free/scss/brands";
 
 
 .base-container {
@@ -81,4 +86,116 @@ body {
   }
   .movie-cell .btn {
     width: 100%;
+  }
+
+  /* 面接シート教材ページ */
+  @media screen and (min-width: 0px) {
+    .interview_sheet-width {
+      max-width: 90%;
+      padding: 50px 0 160px 0;
+      margin: 0 auto;
+    }
+    .interview_sheet-title h2 {
+      text-align: center;
+      font-size: 48px;
+    }
+    .interview_sheet-container .form-control {
+      font-size: 24px;
+    }
+    .interview_sheet-cell a {
+      text-decoration: none;
+    }
+    .interview_sheet-cell .card-top {
+      height: 300px;
+    }
+    .interview_sheet-cell .card-bottom {
+      background-color: #f7f7f7;
+      height: 380px;
+      position: relative;
+    }
+    .interview_sheet-cell .card-bottom h3 {
+      padding: 55px 40px;
+      margin: 0;
+
+      text-align: center;
+    }
+    .interview_sheet-cell .card-bottom p {
+      position: absolute;
+      left: 290px;
+      bottom: 45px;
+      margin: 0;
+    }
+    .interview_sheet-cell .card-bottom h3, p {
+      font-size: 30px;
+      color: black;
+    }
+  }
+  @media screen and (min-width: 992px) {
+    .interview_sheet-width {
+      max-width: 990px;
+      padding: 120px 0 80px 0;  
+      margin: 0 auto;
+    }
+    .interview_sheet-title h2 {
+      font-size: 30px;
+    }
+    .interview_sheet-container .form-control {
+      font-size: 17px;
+    }
+    .interview_sheet-cell .card-top {
+      height: 155px;
+    }
+    .interview_sheet-cell .card-bottom {
+      height: 165px;
+    }
+    .interview_sheet-cell .card-bottom h3 {
+      padding: 30px;
+    }
+    .interview_sheet-cell .card-bottom p {
+      left: 58px;
+      bottom: 25px;
+      margin: 0;
+    }
+    .interview_sheet-cell .card-bottom h3, p {
+      font-size: 16px;
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    .interview_sheet-width {
+      max-width: 1200px; 
+    }
+    .interview_sheet-cell .card-top {
+      height: 185px;
+    }
+    .interview_sheet-cell .card-bottom {
+      height: 170px;
+    }
+    .interview_sheet-cell .card-bottom p {
+      left: 58px;
+      bottom: 25px;
+    }
+  }
+
+  .interview_sheet-container .search-form {
+    position: relative;
+    width: 350px;
+    text-align: center;
+  }
+  .search-form .search-icon {
+    position: absolute;
+    top: 30%;
+    left: 20px;
+    z-index: 11;
+  }
+  .interview_sheet-container .form-control {
+    height: 50px;
+    padding-left: 50px;
+  }
+  .interview_sheet-cell {
+    padding: 0 15px;
+  }
+
+  .interview_sheet-cell .btn {
+    width: 100%;
+    margin: 0;
   }
