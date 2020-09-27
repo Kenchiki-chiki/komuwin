@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   root to: 'schedules#index'
   resources :texts
   resources :movies
+  resources :interview_sheets
 end
