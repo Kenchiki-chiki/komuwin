@@ -1,0 +1,14 @@
+<div class="container">
+  <section id="document-content" class="mx-auto pt-5" style="width: 700px;">
+    <div class="title">
+      <h5>【添削内容】</h5>
+      <%= markdown(@document.title).html_safe %>
+    </div>
+    <hr>
+    <div class="detail">
+      <h5>【原稿文章】</h5>
+      <%= markdown(@document.content).html_safe %>
+    </div>
+    <hr>
+  </section>
+</div>
