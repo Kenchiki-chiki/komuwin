@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   resources :texts
   resources :movies
   resources :interview_sheets
-  resources :documents
+  resources :documents do
+    resource :corrections
+  end
 end

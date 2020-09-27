@@ -1,14 +1,32 @@
 <div class="container">
   <section id="document-content" class="mx-auto pt-5" style="width: 700px;">
-    <div class="title">
-      <h5>【添削内容】</h5>
+    <div class="title pt-5">
+      <h5>【タイトル】</h5>
       <%= markdown(@document.title).html_safe %>
     </div>
     <hr>
-    <div class="detail">
+    <div class="detail pt-5">
       <h5>【原稿文章】</h5>
       <%= markdown(@document.content).html_safe %>
     </div>
     <hr>
+    <div class="solution pt-5">
+      <% @document.corrections.each do |correction| %>
+        <h5>【添削後の文章】</h5>  
+        <%= markdown(correction.content).html_safe %> 
+      <% end %>    
+    </div>
   </section>
+
+  <div class="container mx-auto pt-5" style="width: 700px;">
+    <h2>添削フォーム</h2>
+    <%= form_with model: [@document, @correction], local: true do |f| %>
+      <div class="form-group">
+        <label>【校正】</label>
+        <%= f.text_area :content, class: "correction-content-form" %>
+      </div>
+      <div> <%= f.submit "送信", class: "btn btn-primary form-control" %> </div>
+    <% end %>
+  </div>
+  
 </div>
