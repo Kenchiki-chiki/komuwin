@@ -5,6 +5,8 @@ class CorrectionsController < ApplicationController
     redirect_to document_path(@document)
   end
 
+  
+
   private
   def correction_params
     params.permit(:document_id, correction: [:content])

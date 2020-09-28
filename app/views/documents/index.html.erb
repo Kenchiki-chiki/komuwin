@@ -5,12 +5,12 @@
       <%= form_with model: @document, local: true do |f| %>
         <div class="form-group">
           <label>【タイトル】</label>
-          <%= f.text_area :title, class: "title-form" %>
+          <%= f.text_area :title, class: "title-form", required: true %>
         </div>
         
         <div class="form-group">
           <label>【原稿文章】</label>
-          <%= f.text_area :content, class: "content-form" %>
+          <%= f.text_area :content, class: "content-form", required: true %>
         </div>
         <div> <%= f.submit "添削申請", class: "btn btn-primary form-control" %> </div>
       <% end %>
