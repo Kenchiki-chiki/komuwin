@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2020_09_28_040748) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
+    t.bigint "user_id", default: 1
     t.index ["user_id"], name: "index_documents_on_user_id"
   end
 
