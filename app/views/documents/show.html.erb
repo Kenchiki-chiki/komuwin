@@ -8,6 +8,7 @@
     <div class="detail pt-5">
       <h5>【原稿文章】</h5>
       <%= markdown(@document.content).html_safe %>
+      <p class="d-flex justify-content-end">申請者：<%= @document.user.username %></p>
     </div>
     <hr>
     <div class="d-flex justify-content-end">
@@ -18,7 +19,8 @@
       <% @document.corrections.each do |correction| %>
         <h5>【添削後の文章】</h5>  
         <%= markdown(correction.content).html_safe %> 
-      <p><%= correction.user.id %></p>
+        <p class="d-flex justify-content-end">添削者：<%= correction.user.username %></p>
+        <hr>
       <% end %>
     </div>
   </section>
