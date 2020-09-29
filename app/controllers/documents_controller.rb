@@ -8,6 +8,7 @@ class DocumentsController < ApplicationController
   def show
     @document = Document.find(params[:id])
     @correction = Correction.new
+    # @user = @corrections.user
   end
 
   def create
