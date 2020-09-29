@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_28_040748) do
+ActiveRecord::Schema.define(version: 2020_09_29_041723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,27 +42,31 @@ ActiveRecord::Schema.define(version: 2020_09_28_040748) do
   end
 
   create_table "corrections", force: :cascade do |t|
-    t.bigint "document_id", null: false
     t.text "content"
+    t.bigint "document_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["document_id"], name: "index_corrections_on_document_id"
+    t.index ["user_id"], name: "index_corrections_on_user_id"
   end
 
   create_table "documents", force: :cascade do |t|
     t.string "title"
     t.text "content"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", default: 1
     t.index ["user_id"], name: "index_documents_on_user_id"
   end
 
   create_table "expected_questions", force: :cascade do |t|
     t.string "title"
     t.text "content"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_expected_questions_on_user_id"
   end
 
   create_table "interview_sheets", force: :cascade do |t|
@@ -100,5 +104,7 @@ ActiveRecord::Schema.define(version: 2020_09_28_040748) do
   end
 
   add_foreign_key "corrections", "documents"
+  add_foreign_key "corrections", "users"
   add_foreign_key "documents", "users"
+  add_foreign_key "expected_questions", "users"
 end
