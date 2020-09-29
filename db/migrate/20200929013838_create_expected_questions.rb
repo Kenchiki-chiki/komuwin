@@ -3,6 +3,7 @@ class CreateExpectedQuestions < ActiveRecord::Migration[6.0]
     create_table :expected_questions do |t|
       t.string :title
       t.text :content
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
