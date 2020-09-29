@@ -18,7 +18,8 @@
       <% @document.corrections.each do |correction| %>
         <h5>【添削後の文章】</h5>  
         <%= markdown(correction.content).html_safe %> 
-      <% end %>    
+      <p><%= correction.user.id %></p>
+      <% end %>
     </div>
   </section>
 
