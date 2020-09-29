@@ -23,7 +23,8 @@
             <div class="row document">
               <div class="col-md-7 title"><%= document.title.truncate(50) %></div>
               <div class="col-md-5 info">
-                <p class="d-flex justify-content-end">申請日 <%= document.created_at.to_s(:datetime_jp) %></p>
+                <p class="d-flex justify-content-start">申請日 <%= document.created_at.to_s(:datetime_jp) %></p>
+                <p class="d-flex justify-content-start">申請者 <%= document.user.username %></p>
               </div>
             </div>
           <% end %>
