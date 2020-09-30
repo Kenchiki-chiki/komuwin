@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :documents do
     resource :corrections
   end
+  resources :expected_questions
 end
