@@ -5,6 +5,11 @@
     <hr>
     <%= markdown(@expected_question.content).html_safe %>
 
+    <div class="d-flex justify-content-end">
+      <%= link_to '編集', edit_expected_question_path(@expected_question.id), class: "btn btn-secondary" %>
+      
+    </div>
+
   </section>
 
 </div>
