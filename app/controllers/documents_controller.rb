@@ -31,7 +31,8 @@ class DocumentsController < ApplicationController
   end
 
   def destroy
-    
+
+    # @document = Document.find(params[:id])
     @document.destroy
     redirect_to documents_path, notice: '削除が完了しました'
   end
