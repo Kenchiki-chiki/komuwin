@@ -13,8 +13,23 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 }
 
 body {
-  padding-top: 56px;
+  padding:56px 0 80px 0;
 }
+
+@media screen and (max-width: 992px) {
+  /* 992pxまでの幅の場合に適応される */
+  body {
+    padding: 56px 0 100px 0;
+  }
+
+  .navbar .nav-footer{
+    z-index:10;
+    height:100px;
+    font-size: 32px;
+   
+  }
+
+  }
 
 
 /* Googleカレンダー */
@@ -54,10 +69,27 @@ body {
 
   }
 
-  /* テキスト教材ページ */ /* 想定質問ノックページ */ 
-  #text-contents h2 {
-    font-weight: bold;
-  } 
+  /* テキスト教材ページ */ /* 想定質問ノックページ */ /* 添削ページ */
+  // .text-contents h2 {
+  //   font-weight: bold;
+  // } 
+  @media screen and (min-width: 0px) {
+    .text-width {
+      width: 90%;
+    }
+  }
+  @media screen and (min-width: 992px) {
+    .text-width {
+      width: 990px;
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    .text-width {
+      width: 1200px; 
+    }
+  }
+
+
 
   /* 動画教材ページ */
   @media screen and (min-width: 0px) {
@@ -196,7 +228,7 @@ body {
     margin: 0;
   }
 
-  /* 質問集ページ */
+  /* 添削ページのスタイル */
   .document-container {
     padding: 30px 0;
   }
@@ -318,3 +350,5 @@ body {
       height: 140px;
     }
     }
+
+    
