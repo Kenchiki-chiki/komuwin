@@ -14,10 +14,13 @@
     <header>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flash' %>
+    <%= render 'shared/footer' %>
     </header>
 
     <main>
-      <div class="base-container <%= 'movie-width' if controller_name == "movies" %><%= 'interview_sheet-width' if controller_name == "interview_sheets"%>">
+      <div class="base-container <%= 'movie-width' if controller_name == "movies" %>
+      <%= 'interview_sheet-width' if controller_name == "interview_sheets"%>
+      <%= 'text-width' if controller_name == "texts"|| controller_name =="expected_questions" || controller_name == "documents"%>">
         <%= yield %>
       </div>
     </main>
