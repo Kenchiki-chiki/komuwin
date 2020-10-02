@@ -22,6 +22,29 @@ body {
     padding: 56px 0 100px 0;
   }
 
+  }
+
+/* ヘッダー */
+.navbar-brand {
+  font-size: 1.3rem;
+  margin-right: 3rem;
+}
+
+@media screen and (min-width: 992px) {
+  /* 992pxまでの幅の場合に適応される */
+ 
+  .navbar{
+    font-size: 0.8rem;
+    margin: 0 auto;
+    width: var(--breakpoint-lg);
+   
+  }
+
+  }
+
+  /* フッター */
+@media screen and (max-width: 992px) {
+  /* 992pxまでの幅の場合に適応される */
   .navbar .nav-footer{
     z-index:10;
     height:100px;
