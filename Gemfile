@@ -19,6 +19,8 @@ gem 'devise-bootstrap-views'
 gem 'redcarpet', '~>2.3.0'
 gem 'coderay'
 gem 'activeadmin'
+gem 'slack-notifier'
+gem 'slack-ruby-client'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
