@@ -1,6 +1,6 @@
 class InterviewSheetsController < ApplicationController
   def index
-    @interview_sheets = InterviewSheet.all
+    @interview_sheets = InterviewSheet.all.order(id: "ASC")
   end
 
   def show
