@@ -1,34 +1,13 @@
 # frozen_string_literal: true
-
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
 
-  # GET /resource/sign_up
-  # def new
-  #   super
-  # end
-
-  # POST /resource
   def create
     build_resource(sign_up_params)
-    if Rails.env.production?
-      # SlackAPIで入力された Slack メンバー ID が存在し，削除済みでないかを確認
-      # 問題がない場合は自動で承認済み扱いとする
-      Rails.application.credentials.dig(:slack, :oauth_token).keys.each do |slack_name|
-        client = AutoSlackApproval.new(slack_name: slack_name, slack_id: resource.slack_id)
-        resource.flag = client.approval?
-        if resource.flag
-          resource.slack_name = slack_name.to_s
-          break
-        end
-      end
-    else
-      # 本番環境以外では任意の Slack_id を受け付ける
-      resource.flag = true
-    end
-    if resource.flag
-      # 以下は元ソース通り
+    
+    # approval?とすることで返ってくるtrueかfalseをdecisionに入れる
+    decision = approval?(params[:user][:slack_id])
+    # decisionがtrueであれば、deviseの新規登録機能が実行される
+    if decision
       resource.save
       yield resource if block_given?
       if resource.persisted?
@@ -41,7 +20,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
           expire_data_after_sign_in!
           respond_with resource, location: after_inactive_sign_up_path_for(resource)
         end
-        # 以下は元ソース通り
       else
         clean_up_passwords resource
         set_minimum_password_length
@@ -54,49 +32,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  # GET /resource/edit
-  # def edit
-  #   super
-  # end
 
-  # PUT /resource
-  # def update
-  #   super
-  # end
+  private
+  
+  def approval?(slack_id)
+    # credentials.ymlに埋め込んだトークンを使ってSlalckワークスペースの情報を呼び出し、clientに格納する
+    client = Slack::Web::Client.new(token: Rails.application.credentials.dig(:slack, :oauth_token))
+    # users_infoメソッドを実行することで、引数として受け取ったslack_idをもつユーザーをuserに格納する  
+    user = client.users_info(user: slack_id).user
+    # Slack_idが存在するけれどもユーザーが削除されていたりbotでないかを調べ、問題なければメソッドの呼び出しもとにtrueを返す
+    !user.deleted && !user.is_bot
+    # users_infoメソッドは見つからない場合にエラーが出てしまうので、その対処をする
+  rescue Slack::Web::Api::Errors::UserNotFound
+    false
+  end
 
-  # DELETE /resource
-  # def destroy
-  #   super
-  # end
-
-  # GET /resource/cancel
-  # Forces the session data which is usually expired after sign
-  # in to be expired now. This is useful if the user wants to
-  # cancel oauth signing in/up in the middle of the process,
-  # removing all OAuth session data.
-  # def cancel
-  #   super
-  # end
-
-  # protected
-
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
-
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
-
-  # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
-
-  # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
 end
