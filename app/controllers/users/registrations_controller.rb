@@ -4,10 +4,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
     
-    # approval?とすることで返ってくるtrueかfalseをresource.flagに入れる
-   
+    # approval?とすることで返ってくるtrueかfalseをdecisionに入れる
     decision = approval?(params[:user][:slack_id])
-    # resource.flagがtrueであれば、deviseの新規登録機能が実行される
+    # decisionがtrueであれば、deviseの新規登録機能が実行される
     if decision
       resource.save
       yield resource if block_given?
@@ -39,12 +38,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def approval?(slack_id)
     # credentials.ymlに埋め込んだトークンを使ってSlalckワークスペースの情報を呼び出し、clientに格納する
     client = Slack::Web::Client.new(token: Rails.application.credentials.dig(:slack, :oauth_token))
-    # users_infoメソッドを実行することで、引数として受け取ったslack_idをもつユーザーをuserに格納する
-   
+    # users_infoメソッドを実行することで、引数として受け取ったslack_idをもつユーザーをuserに格納する  
     user = client.users_info(user: slack_id).user
     # Slack_idが存在するけれどもユーザーが削除されていたりbotでないかを調べ、問題なければメソッドの呼び出しもとにtrueを返す
     !user.deleted && !user.is_bot
-    # users_infoメソッドは見つからない場合にエラーが出ないようにする
+    # users_infoメソッドは見つからない場合にエラーが出てしまうので、その対処をする
   rescue Slack::Web::Api::Errors::UserNotFound
     false
   end
