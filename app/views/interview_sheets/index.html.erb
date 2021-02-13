@@ -4,10 +4,10 @@
   </div>
   <form class="mb-3 mx-auto search-form">
     <i class="fa fa-search search-icon"></i>
-    <input type="text" class="form-control" placeholder="教材を探す" aria^label="Username" aria-describedby="addon-wrapping">
+    <%= text_field_tag :title,"",  class: "form-control js-text-field", placeholder: "教材を探す"%>
   </form>
   
-  <div class="row px--3">
+  <div class="row px--3 js-interview_sheets">
   <% @interview_sheets.each do |interview_sheet| %>
     <%= link_to(interview_sheet_path(interview_sheet.id), class: "interview_sheet-cell col-12 col-lg-4 m-0") do %>
       <div class="card border-dark mb-3">

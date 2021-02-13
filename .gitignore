@@ -71,3 +71,7 @@ yarn-debug.log*
 /storage/*
 !/storage/.keep
 /public/uploads
+
+# VisualStudioCode.gitignore
+.vscode/*
+!.vscode/settings.json
