@@ -1,24 +1,33 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+# 概要
+特別区人事委員会採用試験の提出書類の作成や面接対策をサポートするための教材アプリです。オンライン上で面接対策のテキストと動画を見ることや面接書類の添削申請、想定問答集の作成ができます。
 
-* Ruby version
+# 制作背景
+以下の２点を背景として作成しました。
+- コロナウイルスの蔓延と試験の延期に伴い、例年より大幅に就職活動期間が長引いている特別区受験生に対して、現役の特別区公務員という立場から少しでもできることをしたいと思ったため
+- 私が就活生だった頃は以下のような状況であり、過去の自分と同様に本サービスを必要としている人が多く存在すると考えたため
+  -  現役の公務員と関わる機会がない
+  -  オンラインで公務員試験の書類作成や面接対策をサポートする講座がない
+  -  面接対策のためだけに予備校を利用すると、模擬面接や面接シートの添削をするだけでも多額の費用がかかってしまう
 
-* System dependencies
 
-* Configuration
+# URL
 
-* Database creation
+# テストユーザーアカウント
+email：komuwin@example.com
+password：komuwin
 
-* Database initialization
+# 機能一覧
 
-* How to run the test suite
+# テーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+# 使い方
 
-* Deployment instructions
 
-* ...
+- ログインユーザーのみ閲覧可能
+
+
+# 環境
+Ruby 2.6.6
+Rails 6.0.3.3
