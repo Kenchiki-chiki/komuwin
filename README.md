@@ -18,6 +18,10 @@
 email：komuwin@example.com
 password：komuwin
 
+# 環境
+- Ruby 2.6.6
+- Rails 6.0.3.3
+
 # 機能一覧
 
 - **ユーザー登録関連**(devise,slack-notifier,slack-ruby-client)
@@ -162,7 +166,7 @@ password：komuwin
 ログイン後に表示されるナビバーからから` 添削 `をクリックすることで添削ページに遷移します。
 添削してもらいたい文章を入力して添削申請ボタンを押すと、添削申請ができます。
 添削申請後は申請した提出書類名が一覧表示され、クリックすると詳細画面に遷移します。
-詳細画面では申請者本人のみ、内容の編集や削除が可能です。
+詳細画面では添削申請者本人のみ、内容の編集や削除が可能です。
 また、添削者は詳細画面の添削者専用フォームから添削内容を入力できます。
 
 <img width="1791" alt="document" src="https://user-images.githubusercontent.com/65106886/108212720-93cf1f80-7171-11eb-83e5-2bd692dd75ee.png">
@@ -170,8 +174,3 @@ password：komuwin
 ![correction](https://user-images.githubusercontent.com/65106886/108213339-3f786f80-7172-11eb-8391-ba901f03fd35.png)
 
 <img width="1792" alt="correction form" src="https://user-images.githubusercontent.com/65106886/108213488-6df64a80-7172-11eb-91e5-7a13aba43a0f.png">
-
-
-# 環境
-- Ruby 2.6.6
-- Rails 6.0.3.3
