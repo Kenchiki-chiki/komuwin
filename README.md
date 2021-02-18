@@ -13,6 +13,7 @@
 
 
 # URL
+https://komuwin.herokuapp.com
 
 # テストユーザーアカウント
 email：komuwin@example.com
